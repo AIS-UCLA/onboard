@@ -1,0 +1,11 @@
+[Unit]
+Description=Onboarding daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/onboardd
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
