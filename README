@@ -1,0 +1,19 @@
+This is a simple tool for onboarding users over ssh.
+
+Simply add an "onboard" user, set their shell to "onboard", and start the
+included systemd service. Users can be managed with the builtin "onboardctl"
+tool, or directly interacting with the sqlite database "/etc/onboard/onboard.db"
+
+More detailed installation steps:
+
+  1. (sudo) python3 -m pip install .
+  2. Add user "onboard" with shell $(which onboard)
+  3. systemd enable onboard and systemd start onboard
+  4. Allow users to login to the onboard account over ssh
+
+Other information:
+
+This tool was designed and developed by Christopher Milan for UCLA's AI Safety
+club. It is not nearly as fully featured as many other solutions may be, but it
+is simple and easy to use.
+
