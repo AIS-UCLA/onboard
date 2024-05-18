@@ -10,7 +10,7 @@ def setup_files():
   # create authkey file, only accessible by onboard user (and root)
   print(f"Creating AUTHKEY file at {AUTH}.")
   if os.path.exists(AUTH): os.remove(AUTH)
-  os.close(os.open(AUTH, flags=os.O_CREAT, mode=0o600))
+  os.close(os.open(AUTH, flags=os.O_CREAT, mode=0o660))
   shutil.chown(AUTH, user="onboard", group="onboard")
   # write authkey to authfile
   f = open(AUTH, 'wb')
@@ -20,7 +20,7 @@ def setup_files():
   # create db file, only accesible by onboard user (and root)
   if not os.path.exists(DB):
     print(f"Database not found, creating new database at {DB}.")
-    os.close(os.open(DB, flags=os.O_CREAT, mode=0o600))
+    os.close(os.open(DB, flags=os.O_CREAT, mode=0o660))
     shutil.chown(DB, user="onboard", group="onboard")
   print(f"Opening database at {DB}.")
   db = sqlite3.connect(DB)
